@@ -1,0 +1,21 @@
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Your Sanity</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/custom.css' %}">
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+
+    <nav class="navbar bg-custom fixed-bottom justify-content-center" style="background: #590404;">
+        <div style="color: white;">&copy; 2024</div>
+    </nav>
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
