@@ -1,10 +1,14 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import MinMaxScaler
 import joblib
 import numpy as np
+
+import warnings
+warnings.filterwarnings('ignore')
 
 df = pd.read_csv('Student Mental health.csv')
 df.dropna(inplace=True)
@@ -142,4 +146,45 @@ new_data = {
 }
 
 prediction = predict_depression(new_data)
-print('Prediction (0=No Depression, 1=Depression):', prediction)
+print('KNN Prediction:', prediction)
+
+
+
+
+
+# DECISION TREE
+
+# Model Training and Evaluation
+model1 = DecisionTreeClassifier()
+model1.fit(X_train, y_train)
+y_pred = model1.predict(X_test)
+
+acc = accuracy_score(y_test, y_pred)
+print('Decision Tree Accuracy: {0}'.format(acc))
+
+# Save the model
+joblib.dump(model1, 'decision_tree_model.pkl')
+
+# Function to predict depression using Decision Tree
+def predict_depression(datapoint: dict):
+    model = joblib.load('decision_tree_model.pkl')
+    scalers = joblib.load('scalers.pkl')
+    
+    datapoint_list = []
+    for col in X.columns:
+        if col in datapoint:
+            value = datapoint[col]
+            scaled_value = scalers[col].transform(np.array([[value]])).flatten()[0]
+            datapoint_list.append(scaled_value)
+        else:
+            raise ValueError(f"Missing value for column {col}")
+    
+    datapoint_array = np.array(datapoint_list).reshape(1, -1)
+    prediction = model.predict(datapoint_array)[0]
+    
+    return prediction
+
+# Example usage
+
+prediction1 = predict_depression(new_data)
+print('Decision Tree Prediction:', prediction1)
