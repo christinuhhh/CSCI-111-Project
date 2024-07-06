@@ -1,0 +1,12 @@
+{% extends 'espressoapp/base.html' %}
+
+{% block title %}Predict Mental Health{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Predict Mental Health</h1>
+<form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Predict</button>
+</form>
+{% endblock %}
