@@ -4,8 +4,21 @@
 {% block title %}Prediction Results{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Prediction Results</h1>
-<p><strong>KNN Prediction:</strong> {{ prediction.knn_prediction|yes_no }}</p>
-<p><strong>Decision Tree Prediction:</strong> {{ prediction.decision_tree_prediction|yes_no }}</p>
-<a href="{% url 'home' %}" class="btn btn-secondary mt-3">Make another prediction</a>
+<br>
+<div class="container-results">  
+  <h2>Prediction Results</h2>
+  <div class="card">  <div class="card-body">  <div class="row">  <div class="col-md-6">  <p class="card-text"><strong>KNN Prediction:</strong> {{ prediction.knn_prediction|yes_no }}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="card-text"><strong>Decision Tree Prediction:</strong> {{ prediction.decision_tree_prediction|yes_no }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="text-center">
+    <a href="{% url 'home' %}" class="btn btn-warning">Make another prediction</a>
+  </div>
+</div>
+
 {% endblock %}

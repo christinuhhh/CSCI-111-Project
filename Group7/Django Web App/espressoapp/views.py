@@ -1,7 +1,8 @@
+# views.py
 from django.shortcuts import render, redirect
-from .models import Prediction
 from .forms import PredictionForm
 from .utils import predict_with_knn, predict_with_decision_tree
+from .models import Prediction
 
 def home(request):
     if request.method == 'POST':
