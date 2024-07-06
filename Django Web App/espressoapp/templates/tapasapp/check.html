@@ -4,56 +4,105 @@
 {% load static %}
 
 {% block content %}
+            <form method="post">
+                <h2>I. General Information</h2>
+                <!-- {% csrf_token %} -->
+                <div class="col">
+                    <div class="row-input">
+                        <div class="col-sm-1">
+                            <div class="field-container">
+                                <label for="age">Age</label>
+                                <input type="number" name="age" class="form-control" id="age" placeholder="20">
+                            </div>
+                        </div>
 
-<!-- add page code here -->
+                        <div class="col-sm-2">
+                            <div class="field-container">
+                            <label for="sex">Sex assigned at birth</label>
+                            <select name="sex" class="form-select" id="sex">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-input">
+                        <div class="col-sm-3">
+                            <div class="field-container">
+                            <label for="Martital Status">Martial Status</label>
+                            <select name="marstat" class="form-select" id="marstat">
+                                <option value="single">Single</option>
+                                <option value="married">Married</option>
+                            </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="field-container">
+                                <label for="year">College Level</label>
+                                <input type="number" name="collegelevel" class="form-control" id="age" placeholder="4">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <hr>
+                <h2>II. Mental Health Background</h2>
+                <div class="ii-container">
+                    <p class="mb-0 mt-3">1. Do you have anxiety?</p>
+                        <div class="options-indent">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="anxiety" id="anxiety_yes" value="yes">
+                                <label class="form-check-label" for="anxiety_yes">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="anxiety" id="anxiety_no" value="no">
+                                <label class="form-check-label" for="anxiety_no">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    
+                        <p class="mb-0 mt-3">2. Do you experience panic attacks?</p>
+                        <div class="options-indent">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="panic_attacks" id="panic_yes" value="yes">
+                                <label class="form-check-label" for="panic_yes">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="panic_attacks" id="panic_no" value="no">
+                                <label class="form-check-label" for="panic_no">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+
+                        <p class="mb-0 mt-3">3. Do you seek any specialist for treatment?</p>
+                        <div class="options-indent">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="specialist" id="specialist_yes" value="yes">
+                                <label class="form-check-label" for="specialist_yes">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="specialist" id="specialist_no" value="no">
+                                <label class="form-check-label" for="specialist_no">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                </div>
+                <br>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
 
 {% endblock %}
-
-
-
-<!-- FOR REFERNCE -->
-
-<!--
-<div class="col-md-8">
-
-    <div class="card">
-        <div class="card-header">
-            <h5 class="card-title"> Type in Dish Details:</h5>
-        </div>
-        <div class="card-body">
-
-            <form method="POST" action="{% url 'add_menu' %}">{% csrf_token %}
-            
-                <div class="form-group">
-                    <label for="name"> Name: </label>
-                    <input type="text" class="form-control" id="dname" name="dname">
-                </div>
-
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="vintage"> Cook Time: </label>
-                            <input type="number" class="form-control w-50" id="ctime" name="ctime">
-                        </div>
-        
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="price"> Prep Time: </label>
-                            <input type="number" class="form-control w-50" id="ptime" name="ptime">
-                        </div>
-        
-                    </div>
-                </div>
-
-
-
-                <button type="submit" class="mt-3 btn btn-secondary">Add to dishes</button>
-            </form>                
-
-
-        </div>
-    </div>
-
-</div>
--->
