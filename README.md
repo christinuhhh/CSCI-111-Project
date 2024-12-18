@@ -1,6 +1,7 @@
 Group7 is the final file where the whole project can be found
 
 to run the server, navigate to Group7, then type:
-python manage.py migrate  
-python manage.py runserver
-then type https://localhost:8000/ on any browser
+
+1. python manage.py migrate  
+2. python manage.py runserver
+3. https://localhost:8000/ on any browser to access the website
