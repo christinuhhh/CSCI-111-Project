@@ -1,6 +1,6 @@
-Group7 is the final file where the whole project can be found
+Django Web App is the final file where the whole project can be found
 
-to run the server, navigate to Group7, then type:
+to run the server, navigate to Django Web App, then type:
 
 1. python manage.py migrate  
 2. python manage.py runserver
